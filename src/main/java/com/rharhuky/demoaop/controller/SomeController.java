@@ -1,5 +1,6 @@
 package com.rharhuky.demoaop.controller;
 
+import com.rharhuky.demoaop.service.AnotherService;
 import com.rharhuky.demoaop.service.SomeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -14,10 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class SomeController {
 
     private final SomeService someService;
+    private final AnotherService anotherService;
 
     @GetMapping
     public void something(){
+        this.anotherService.doIt();
         this.someService.doIt();
+
     }
 
 }
